@@ -1,0 +1,9 @@
+{
+    "apps": [
+        {
+            "name": "xpost-limpagrid",
+            "script": "node dist/index.js",
+            "cron_restart": "*/30 * * * *"
+        }
+    ]
+}
