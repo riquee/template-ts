@@ -9,11 +9,11 @@ class CargaRepository {
 
   constructor(private sto: string) {
     this.sto = sto;
-    this.diasRetroativos = 2;
+    this.diasRetroativos = 15;
   }
 
   async findPlps() {
-    const { today, lastDay } = currentDateDiff(50);
+    const { today, lastDay } = currentDateDiff(this.diasRetroativos);
 
     const [plps]: [[{ plp: string; etiqueta: string }]] = await this.repository.execute(`
       SELECT
@@ -72,8 +72,7 @@ class CargaRepository {
     const query = serializeQueryInsertObjeto(this.sto, objeto, options);
     try {
       await this.repository.execute(query);
-    } catch (error) {
-    }
+    } catch (error) {}
   }
 }
 export default CargaRepository;
