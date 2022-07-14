@@ -30,6 +30,7 @@ class LimpaGrid {
     this.objetosNaoLocalizados = [];
     this.objetosErroProcessamento = [];
     this.objetosOK = [];
+    this.objetosNaoPostados = [];
   }
 
   findObjectInPlp(etiqueta: string, plps: ISolicitaXmlPlpSerialized[]) {
@@ -62,7 +63,7 @@ class LimpaGrid {
       const plpsSync: ISolicitaXmlPlpSerialized[] = [];
       const plps = await this.cargaRepository.findPlps();
       const objetosCarga = await this.cargaRepository.find();
-      
+
       console.log(`Total objetos: ${objetosCarga.length}`);
 
       for (const plp of plps) {
